@@ -1,0 +1,47 @@
+public class Solution {
+    public static int mergersort(int row1[],int row2[],int m,int n,int k)
+    {
+        int ladoos=0;
+        int temp[]=new int[m+n];
+        int i=0,j=0,index=0;
+        while(i<m && j<n)
+        {
+            if(row1[i]<=row2[j])
+            {
+                temp[index]=row1[i];
+                index++;
+                i++;
+            }
+            else if(row2[j]<row1[i])
+            {
+                temp[index]=row2[j];
+                index++;
+                j++;
+            }
+        }
+        while(i<m)
+        {
+            temp[index]=row1[i];
+            i++;
+            index++;
+        }
+        while(j<n)
+        {
+            temp[index]=row2[j];
+            j++;
+            index++;
+        }
+        for(int p=0;p<temp.length;p++)
+        {
+            if(p+1==k)
+            {
+               ladoos= temp[p];
+            }
+        }
+        return ladoos;
+    }
+    public static int ninjaAndLadoos(int row1[], int row2[], int m, int n, int k) {
+        int ninjaAndLadoos=mergersort(row1,row2,m,n,k);
+        return ninjaAndLadoos;
+    }
+}
